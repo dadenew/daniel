@@ -2,8 +2,8 @@ dataSource {
     pooled = true
     driverClassName = "org.postgresql.Driver"
     dialect = org.hibernate.dialect.PostgreSQLDialect
-    username = "adminitnskdw"
-    password = "GC4nMDAPNI8c"
+    username = "adminhknicxn" 
+    password = "izn18WpJGiSQ"
 }
 hibernate {
     cache.use_second_level_cache = true
