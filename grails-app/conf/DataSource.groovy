@@ -2,8 +2,8 @@ dataSource {
     pooled = true
     driverClassName = "org.postgresql.Driver"
     dialect = org.hibernate.dialect.PostgreSQLDialect
-    username = "postgres"
-    password = "root"
+    username = "adminitnskdw"
+    password = "GC4nMDAPNI8c"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -27,20 +27,14 @@ environments {
         }
     }
     production {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:postgresql://localhost:5432/daniel"
-            pooled = true
-            properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
-            }
-        }
+       dataSource {
+        dbCreate = "update"
+        driverClassName = "org.postgresql.Driver"
+        dialect = org.hibernate.dialect.PostgreSQLDialect   
+    uri = new URI(System.env.OPENSHIFT_POSTGRESQL_DB_URL)
+    url = "jdbc:postgresql://"+uri.host+uri.path+"/"+System.env.OPENSHIFT_APP_NAME
+        username = System.env.OPENSHIFT_POSTGRESQL_DB_USERNAME
+        password = System.env.OPENSHIFT_POSTGRESQL_DB_PASSWORD
+    }
     }
 }
