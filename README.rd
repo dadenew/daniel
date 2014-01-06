@@ -1,0 +1,1 @@
+This is another grails Application for open shift!
